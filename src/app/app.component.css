@@ -1,0 +1,17 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.completed {
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+
+tr:hover {
+    background-color: lightyellow;
+}
+
+button:hover {
+    background-color: lightblue;
+}
