@@ -1,31 +1,37 @@
-<table [cellPadding]="10">
-  <tr style="text-align: left;">
-    <th>Task</th>
-    <th>Completed</th>
-    <th>Duration (mins)</th>
-    <th></th>
-    <th>Remove</th>
-  </tr>
-  @for(t of list; track $index) {
+<div class = "container2">
+<h1 style="text-align: center;">To-Do List</h1>
+<div>
+  <table [cellPadding]="10">
+    <tr style="text-align: left">
+      <th>Task</th>
+      <th>Completed</th>
+      <th>Duration (mins)</th>
+      <th></th>
+      <th>Remove</th>
+    </tr>
+    @for(t of list; track $index) {
     <tr>
-      <td [class.completed] = "t.completed">{{t.task}}</td>
-      <td>{{t.completed}}</td>
-      <td>{{t.duration | number: '1.0-0'}}</td>
+      <td [class.completed]="t.completed">{{ t.task }}</td>
+      <td>{{ t.completed }}</td>
+      <td>{{ t.duration | number : "1.0-0" }}</td>
       @if(!t.completed) {
-      <td><button (click) ="MarkComplete(t)">Mark Completed</button></td>
-      }
-      @else {
-        <td style="color:green">Task Completed</td>
+      <td><button (click)="MarkComplete(t)">Mark Completed</button></td>
+      } @else {
+      <td style="color: green">Task Completed</td>
       }
       <td><button (click)="RemoveTask(t)">X</button></td>
     </tr>
-  }
-</table>
-<p><u>Add a new task:</u></p>
-<input placeholder="Name of task" type="text" [(ngModel)] = formTodo.task />
-<br>
-<br>
-<input placeholder="Duration of task" type="number" [(ngModel)] = formTodo.duration />
-<br>
-<br>
-<button (click)="AddTask()">Add Task</button>
+    }
+  </table>
+</div>
+<div>
+  <p><u>Add a new task:</u></p>
+  <input placeholder="Name of task" type="text" [(ngModel)]="formTodo.task" />
+  <br />
+  <br />
+  <input placeholder="Duration of task" type="number" [(ngModel)]="formTodo.duration" />
+  <br />
+  <br />
+  <button (click)="AddTask()">Add Task</button>
+</div>
+</div>
